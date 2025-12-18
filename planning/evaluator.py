@@ -222,7 +222,7 @@ class PlanEvaluator:  # evaluator for planning
                     i_obs = torch.cat(
                         [i_obs.cpu(), goal_visual[idx, 0] - correction], dim=2
                     )
-                    frame = torch.cat([e_obs - correction, i_obs], dim=1)
+                    frame = torch.cat([e_obs - correction, i_obs], dim=1) #, i_obs
                     frame = rearrange(frame, "c w1 w2 -> w1 w2 c")
                     frame = rearrange(frame, "w1 w2 c -> (w1) w2 c")
                     frame = frame.detach().cpu().numpy()
